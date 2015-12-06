@@ -1,6 +1,226 @@
 /*page of index*/
 /*background-color: #FF3767;*/
 
-body {
+.com-width {
+    padding: 0 5%;
+}
 
+body {
+    background: #F9F9F9;
+    font: 300 13px/1.6 'Helvetica Neue', Helvetica, Arial;
+    color: #444;
+}
+
+/*section of header*/
+
+.header {
+    display: block;
+    background: #FFFFFF;
+    position: relative;
+}
+
+.header_banner {
+    height: 50px;
+    padding: 5px;
+    z-index: 101
+}
+
+.header_banner h1 {
+    display: block;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: url("../imgs/icon/suc.png") right center no-repeat;
+    background-size: 80px;
+    padding-left: 15px;
+}
+
+.header .menu {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    color: #36464F;
+}
+
+.header .menu i {
+    font-size: 18px;
+}
+
+.header .header_content a {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    color: #444;
+    border-top: 1px solid #FAFAFA;
+    text-decoration: none;
+}
+
+.header .header_content {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: -102px;
+    background: #FFFFFF;
+}
+
+/*section of content */
+
+.content .info_content {
+    padding: 0 25px;
+}
+
+.content .info_content li {
+    margin-top: 24px;
+}
+
+.content .info_content h3 {
+    float: left;
+    height: 54px;
+    line-height: 54px;
+    display: inline-block;
+}
+
+.content .info_content input {
+    width: 50%;
+    height: 50px;
+    position: relative;
+    left: 15%;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.content .info_content span {
+    float: right;
+    font-size: 18px;
+    height: 54px;
+    line-height: 54px;
+}
+
+.content .info_content .fa-female {
+    padding-right: 3px;
+    border-right: 1px solid #CCC;
+}
+
+/*section of result_content*/
+
+.result_content {
+    font-size: 18px;
+}
+
+.result_content .top_result {
+    height: 25px;
+    line-height: 25px;
+    padding: 0 25px;
+}
+
+.result_content .top_result h3 {
+    height: 25px;
+    line-height: 25px;
+    font-weight: normal;
+    float: left;
+}
+
+.result_content .top_result span {
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    left: 36%;
+}
+
+.result_content .top_result i {
+    height: 25px;
+    line-height: 25px;
+    padding-right: 5px;
+    float: right;
+}
+
+.result_content .bottom_result {
+    width: 100%;
+    height: 25px;
+    background: url("../imgs/icon/spectrum.png") center bottom no-repeat;
+    background-size: 100%;
+}
+
+/*section of range_info*/
+
+.range_info {
+    padding: 0 8px;
+}
+
+.range_info li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.range_info .li_1 {
+    color: #6FDCFF;
+}
+
+.range_info .li_2 {
+    color: #56A95A;
+}
+
+.range_info .li_3 {
+    color: #FBD432;
+}
+
+.range_info .li_4 {
+    color: #FF8D12;
+}
+
+.range_info .li_5 {
+    color: #FF4746;
+}
+
+.range_info h3 {
+    font-weight: normal;
+    height: 25px;
+    line-height: 25px;
+    display: inline;
+}
+
+.range_info li span {
+    width: 60px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+    float: right;
+}
+
+/*section of footer*/
+
+.footer {
+    padding: 25px 0;
+}
+
+.footer .copyright h2 {
+    width: 200px;
+    text-align: center;
+    color: #9C9C9C;
+    margin: 0 auto;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.footer .copyright .suc_logo_footer {
+    color: #76D6FF;
+    font-size: 18px;
+    font-weight: bold;
+    vertical-align: -6%;
+    padding-left: 10px;
+}
+
+.footer .social-links {
+    width: 175px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.footer .social-links a {
+    margin-left: 20px;
+    font-size: 11px;
+    text-decoration: none;
 }

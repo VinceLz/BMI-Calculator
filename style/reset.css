@@ -21,3 +21,5 @@ td, th, caption { padding: 0; }
 .fl { float: left; }
 .fr { float: right; }
 .hide { display: none; }
+.hr_25px { height: 25px; }
+.clr { clear: both}
