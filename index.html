@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style/font-awesome.min.css">
     <link rel="stylesheet" href="style/reset.css">
     <link rel="stylesheet" href="style/main.css">
+    <script src="script/jquery-2.1.4.min.js"></script>
+    <script src="script/main.js"></script>
 </head>
 <body>
 <div class="header">
@@ -17,32 +19,31 @@
     </div>
     <a href="#" class="menu">
         <i class="fa fa-bars"></i>
-        <!--<i class="fa fa-times"></i>-->
     </a>
     <nav class="header_content">
         <a href="#">About</a>
         <a href="#">FAQ</a>
     </nav>
 </div>
-
 <div class="content com-width">
     <ul class="info_content">
         <li class="age">
             <h3>年龄</h3>
-            <input type="text">
+            <input type="number" name="age" step='1' min="1" max="100">
             <span>
                 <i class="fa fa-female"></i>
+                <i class="line">|</i>
                 <i class="fa fa-male"></i>
             </span>
         </li>
         <li class="height_info">
             <h3>身高</h3>
-            <input type="text">
+            <input type="number" name="height" min="1" max="250">
             <span>CM</span>
         </li>
         <li class="weight_info">
             <h3>体重</h3>
-            <input type="text">
+            <input type="number" name="weight" min="1" max="200">
             <span>KG</span>
         </li>
     </ul>
