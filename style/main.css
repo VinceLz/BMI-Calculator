@@ -100,14 +100,14 @@ body {
     text-align: center;
 }
 
-.content .age .line {
+.content .age_info .line {
     float: left;
     padding-left: 3px;
 
 }
 
 .content .info_content .fa-male,
-.content .age .line {
+.content .age_info .line {
     padding-left: 3px;
 }
 
@@ -237,13 +237,15 @@ body {
 }
 
 .footer .social-links {
-    width: 175px;
     margin: 8px auto 0;
     text-align: center;
 }
 
 .footer .social-links a {
-    margin-left: 20px;
     font-size: 11px;
     text-decoration: none;
+}
+
+.margin_left_20px {
+    margin-left: 20px;
 }

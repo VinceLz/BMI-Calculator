@@ -7,7 +7,10 @@ $(document).ready(function () {
         $headList = $('.header .header_content'),
         $iconMenu = $('.header .menu i'),
         $femaleIcon = $('.content .fa-female'),
-        $maleIcon = $('.content .fa-male');
+        $maleIcon = $('.content .fa-male'),
+        $age = $('.content .age_info input'),
+        $height = $('.content .height_info input'),
+        $weight = $('.content .weight_info input');
 
     /*
      菜单栏下拉
@@ -40,5 +43,15 @@ $(document).ready(function () {
             $maleIcon.removeClass('fa-male-active');
             object.addClass(className);
         }
+    }
+
+    /*
+     信息处理
+     */
+    function changeAgeandSexInfo() {
+        //if
+        //$age.change(function () {
+        //
+        //})
     }
 });
