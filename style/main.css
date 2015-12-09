@@ -154,9 +154,8 @@ body {
 .result_content .top_result i {
     height: 25px;
     line-height: 25px;
-    padding-right: 5px;
+    width: 35px;
     float: right;
-    margin-right: 5px;
 }
 
 .result_content .bottom_result {
@@ -216,7 +215,7 @@ body {
 /*section of footer*/
 
 .footer {
-    padding: 25px 0;
+    padding: 25px 0 0;
 }
 
 .footer .copyright h2 {
