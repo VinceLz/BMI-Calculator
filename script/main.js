@@ -26,7 +26,7 @@ $(document).ready(function () {
         if ($iconMenu.hasClass('fa fa-bars') && timer) {
             timer = false;
             $iconMenu.removeClass().addClass('fa fa-times');
-            $('.buddy').css('z-index','-2');
+            $('.buddy').css('z-index', '-2');
             $headList.velocity({
                 translateY: $heightVal
             });
@@ -47,7 +47,7 @@ $(document).ready(function () {
                 translateY: 0
             }, {
                 complete: function () {
-                    $('.buddy').css('z-index','0');
+                    $('.buddy').css('z-index', '0');
                     timer = true;
                 }
             })
@@ -82,7 +82,6 @@ $(document).ready(function () {
 
     $inputOfInfo.not(".age_info input").keypress(limitNum);
     $inputOfInfo.eq(0).keypress(function limitNum(e) {
-        console.log(e);
         var k = window.event ? e.keyCode : e.which;
         if (((k >= 48) && (k <= 57)) || k == 8 || k == 0) {
         } else {
@@ -139,7 +138,9 @@ $(document).ready(function () {
         });
 
         $sexSection.click(function () {
+            $sex = sexInfo();
             if ($age.val()) {
+                console.log($age.val());
                 changeRangeInfo();
             }
         });
