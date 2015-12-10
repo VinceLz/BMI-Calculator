@@ -13,24 +13,31 @@ $(document).ready(function () {
         $weight = $('.content .weight_info input'),
         $rangeList = $('.range_info li span'),
         $sexSection = $('.content .age_info .fa'),
+        $inputOfInfo = $('.info_content input'),
+        $heightVal = $headList.height(),
         $result;
-
-
     /*
      菜单栏下拉
      */
     $menu.click(function () {
         if ($iconMenu.hasClass('fa fa-bars')) {
             $iconMenu.removeClass().addClass('fa fa-times');
+            $headList.height(0);
+            $headList.show();
+            $headList.velocity({
+                height: $heightVal + 'px'
+            })
         } else {
             $iconMenu.removeClass().addClass('fa fa-bars');
+            $headList.velocity({
+                height: 0
+            })
         }
-        $headList.slideToggle();
     });
-
     /*
      性别选择
      */
+
     clickSexIcon($femaleIcon, 'fa-female-active');
     clickSexIcon($maleIcon, 'fa-male-active');
 
@@ -46,6 +53,38 @@ $(document).ready(function () {
             $femaleIcon.removeClass('fa-female-active');
             $maleIcon.removeClass('fa-male-active');
             object.addClass(className);
+        }
+    }
+
+    /*
+     限制input输入
+     */
+
+    $inputOfInfo.not(".age_info input").keypress(limitNum);
+    $inputOfInfo.eq(0).keypress(function limitNum(e) {
+        console.log(e);
+        var k = window.event ? e.keyCode : e.which;
+        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0) {
+        } else {
+            if (window.event) {
+                window.event.returnValue = false;
+            }
+            else {
+                e.preventDefault(); //for firefox
+            }
+        }
+    });
+
+    function limitNum(e) {
+        var k = window.event ? e.keyCode : e.which;
+        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 46) {
+        } else {
+            if (window.event) {
+                window.event.returnValue = false;
+            }
+            else {
+                e.preventDefault(); //for firefox
+            }
         }
     }
 
