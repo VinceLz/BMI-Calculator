@@ -15,25 +15,51 @@ $(document).ready(function () {
         $sexSection = $('.content .age_info .fa'),
         $inputOfInfo = $('.info_content input'),
         $heightVal = $headList.height(),
+        $resultBackground = $('.result_content'),
+        $sex = sexInfo(),
+        timer = 2,
         $result;
     /*
      菜单栏下拉
      */
     $menu.click(function () {
-        if ($iconMenu.hasClass('fa fa-bars')) {
+        if ($iconMenu.hasClass('fa fa-bars') && timer == 2) {
+            timer = 0;
             $iconMenu.removeClass().addClass('fa fa-times');
-            $headList.height(0);
-            $headList.show();
+            $('.content').css('z-index', '-2');
             $headList.velocity({
-                height: $heightVal + 'px'
+                translateY: $heightVal
+            });
+            $('.content').velocity({
+                translateY: 12
+            });
+            $('.footer').velocity({
+                translateY: 12
+            }, {
+                complete: function () {
+                    timer = 1;
+                }
             })
-        } else {
+        } else if ($iconMenu.hasClass('fa fa-times') && timer == 1) {
             $iconMenu.removeClass().addClass('fa fa-bars');
             $headList.velocity({
-                height: 0
+                translateY: 0
+            });
+            $('.content').velocity({
+                translateY: 0
+            });
+            $('.footer').velocity({
+                translateY: 0
+            }, {
+                complete: function () {
+                    $('.content').css('z-index', '0');
+                    timer = 2;
+                }
             })
         }
+        console.log(timer);
     });
+
     /*
      性别选择
      */
@@ -94,6 +120,7 @@ $(document).ready(function () {
      1代表female
      2代表male
      */
+
     changeAgeandSexInfo();
     result();
 
@@ -124,7 +151,6 @@ $(document).ready(function () {
         });
 
         function changeRangeInfo() {
-            var $sex = sexInfo();
             if ($sex == 1) {
                 $rangeList.eq(0).html('&lt; 18');
                 $rangeList.eq(1).html('18 - 25');
@@ -194,5 +220,41 @@ $(document).ready(function () {
             var $idealWeightMin = Math.round($idealWeight * 0.9);
             $rangeList.eq(5).html($idealWeightMin + ' - ' + $idealWeightMax);
         }
+    }
+
+    /*
+     result_content背景动画
+     */
+
+    function value() {
+        if ($sex == 1) {
+            if ($result < 18) {
+                return lev1
+            } else if (18 <= $result <= 25) {
+                return lev2
+            } else if (25 < $result <= 30) {
+                return lev3
+            } else if (30 < $result <= 40) {
+                return lev4
+            } else if ($result > 40) {
+                return lev5
+            }
+        } else if ($sex == 2) {
+            if ($result < 19) {
+                return lev1
+            } else if (19 <= $result <= 25) {
+                return lev2
+            } else if (25 < $result <= 30) {
+                return lev3
+            } else if (30 < $result <= 40) {
+                return lev4
+            } else if ($result > 40) {
+                return lev5
+            }
+        }
+    }
+
+    function pointPostion() {
+
     }
 });
