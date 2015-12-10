@@ -71,11 +71,13 @@ body {
     z-index: -1;
 }
 
-/*section of content */
+/*section of buddy*/
 
-.content {
+.buddy {
     position: relative;
 }
+
+/*section of content */
 
 .content .info_content {
     padding: 0 25px;
@@ -232,7 +234,7 @@ body {
 /*section of footer*/
 
 .footer {
-    padding: 15px 0 0;
+    padding: 15px 0 15px;
 }
 
 .footer .copyright h2 {

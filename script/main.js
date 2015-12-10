@@ -17,47 +17,41 @@ $(document).ready(function () {
         $heightVal = $headList.height(),
         $resultBackground = $('.result_content'),
         $sex = sexInfo(),
-        timer = 2,
+        timer = true,
         $result;
     /*
      菜单栏下拉
      */
     $menu.click(function () {
-        if ($iconMenu.hasClass('fa fa-bars') && timer == 2) {
-            timer = 0;
+        if ($iconMenu.hasClass('fa fa-bars') && timer) {
+            timer = false;
             $iconMenu.removeClass().addClass('fa fa-times');
-            $('.content').css('z-index', '-2');
+            $('.buddy').css('z-index','-2');
             $headList.velocity({
                 translateY: $heightVal
             });
-            $('.content').velocity({
-                translateY: 12
-            });
-            $('.footer').velocity({
-                translateY: 12
+            $('.buddy').velocity({
+                translateY: 15
             }, {
                 complete: function () {
-                    timer = 1;
+                    timer = true;
                 }
             })
         } else if ($iconMenu.hasClass('fa fa-times') && timer == 1) {
+            timer = false;
             $iconMenu.removeClass().addClass('fa fa-bars');
             $headList.velocity({
                 translateY: 0
             });
-            $('.content').velocity({
-                translateY: 0
-            });
-            $('.footer').velocity({
+            $('.buddy').velocity({
                 translateY: 0
             }, {
                 complete: function () {
-                    $('.content').css('z-index', '0');
-                    timer = 2;
+                    $('.buddy').css('z-index','0');
+                    timer = true;
                 }
             })
         }
-        console.log(timer);
     });
 
     /*
