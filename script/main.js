@@ -2,6 +2,8 @@
  * Created by Lewis on 15/12/6.
  */
 
+
+
 $(document).ready(function () {
     var $menu = $('.menu'),
         $headList = $('.header .header_content'),
@@ -15,10 +17,14 @@ $(document).ready(function () {
         $sexSection = $('.content .age_info .fa'),
         $inputOfInfo = $('.info_content input'),
         $heightVal = $headList.height(),
-        $resultBackground = $('.result_content'),
+        $resultBackground = $('.result_content .top_result'),
+        $caretLeft = parseInt($('.fa-caret-down').css('left')),
         $sex = sexInfo(),
         timer = true,
+        state = true,
         $result;
+
+
     /*
      菜单栏下拉
      */
@@ -83,7 +89,7 @@ $(document).ready(function () {
     $inputOfInfo.not(".age_info input").keypress(limitNum);
     $inputOfInfo.eq(0).keypress(function limitNum(e) {
         var k = window.event ? e.keyCode : e.which;
-        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0) {
+        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 13) {
         } else {
             if (window.event) {
                 window.event.returnValue = false;
@@ -96,7 +102,7 @@ $(document).ready(function () {
 
     function limitNum(e) {
         var k = window.event ? e.keyCode : e.which;
-        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 46) {
+        if (((k >= 48) && (k <= 57)) || k == 8 || k == 0 || k == 46 || k == 13) {
         } else {
             if (window.event) {
                 window.event.returnValue = false;
@@ -140,7 +146,6 @@ $(document).ready(function () {
         $sexSection.click(function () {
             $sex = sexInfo();
             if ($age.val()) {
-                console.log($age.val());
                 changeRangeInfo();
             }
         });
@@ -182,8 +187,11 @@ $(document).ready(function () {
         function calculate() {
             if ($age.val() && $height.val() && $weight.val() && sexInfo()) {
                 $result = $weight.val() / (($height.val() / 100) * ($height.val() / 100));
+                console.log($weight.val());
                 conuntUp($result);
                 changeSexIcon();
+                pointPostion();
+                changeColor();
             }
         }
 
@@ -196,16 +204,16 @@ $(document).ready(function () {
                 prefix: '',
                 suffix: ''
             };
-            var demo = new CountUp("resultText", 0, $number, 2, 2, options);
+            var demo = new CountUp("resultText", 0, $number, 2, 2.6, options);
             demo.start();
         }
 
         function changeSexIcon() {
             var $sex = sexInfo();
             if ($sex == 1) {
-                $('.result_content i').removeClass().addClass('fa fa-venus')
+                $('.result_content .top_result i').removeClass().addClass('fa fa-venus')
             } else if ($sex == 2) {
-                $('.result_content i').removeClass().addClass('fa fa-mars')
+                $('.result_content .top_result i').removeClass().addClass('fa fa-mars')
             }
         }
 
@@ -221,35 +229,267 @@ $(document).ready(function () {
      result_content背景动画
      */
 
-    function value() {
-        if ($sex == 1) {
+    function changeColor() {
+        var $color,
+            seqChangeColor;
+
+        if ($sex == 1 && !state) {
             if ($result < 18) {
-                return lev1
-            } else if (18 <= $result <= 25) {
-                return lev2
-            } else if (25 < $result <= 30) {
-                return lev3
-            } else if (30 < $result <= 40) {
-                return lev4
+                $color = '#6FDCFF'
+            } else if (18 <= $result && $result <= 25) {
+                $color = '#56A95A'
+            } else if (25 < $result && $result <= 30) {
+                $color = '#FBD432'
+            } else if (30 < $result && $result <= 40) {
+                $color = '#FF8D12'
             } else if ($result > 40) {
-                return lev5
+                $color = '#FF4746'
             }
-        } else if ($sex == 2) {
+            seqChangeColor = [{
+                e: $resultBackground,
+                p: {backgroundColor: $color},
+                o: {duration: 2600}
+            }];
+        } else if ($sex == 2 && !state) {
             if ($result < 19) {
-                return lev1
-            } else if (19 <= $result <= 25) {
-                return lev2
-            } else if (25 < $result <= 30) {
-                return lev3
-            } else if (30 < $result <= 40) {
-                return lev4
+                $color = '#6FDCFF'
+            } else if (19 <= $result && $result <= 25) {
+                $color = '#56A95A'
+            } else if (25 < $result && $result <= 30) {
+                $color = '#FBD432'
+            } else if (30 < $result && $result <= 40) {
+                $color = '#FF8D12'
             } else if ($result > 40) {
-                return lev5
+                $color = '#FF4746'
             }
+            seqChangeColor = [{
+                e: $resultBackground,
+                p: {backgroundColor: $color},
+                o: {duration: 2600}
+            }];
         }
+
+
+        if ($sex == 1 && state) {
+
+            if ($result < 18) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 2600}
+                    }];
+            } else if (18 <= $result && $result <= 25) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 1300}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 1300}
+                    }];
+
+            } else if (25 < $result && $result <= 30) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 866}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 866}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 867}
+                    }];
+            } else if (30 < $result && $result <= 40) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 650}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 650}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 650}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF8D12'},
+                        o: {duration: 650}
+                    }];
+            } else if ($result > 40) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 520}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF8D12'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF4746'},
+                        o: {duration: 520}
+                    }];
+            }
+
+            state = false;
+
+
+        } else if ($sex == 2 && state) {
+
+            if ($result < 19) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 2600}
+                    }];
+            } else if (19 <= $result && $result <= 25) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 1300}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 1300}
+                    }];
+
+            } else if (25 < $result && $result <= 30) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 866}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 866}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 867}
+                    }];
+            } else if (30 < $result && $result <= 40) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 650}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 650}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 650}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF8D12'},
+                        o: {duration: 650}
+                    }];
+            } else if ($result > 40) {
+                seqChangeColor = [
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#6FDCFF'},
+                        o: {duration: 520}
+                    },
+                    {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#56A95A'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FBD432'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF8D12'},
+                        o: {duration: 520}
+                    }, {
+                        e: $resultBackground,
+                        p: {backgroundColor: '#FF4746'},
+                        o: {duration: 520}
+                    }];
+
+            }
+            state = false;
+        }
+
+        var $h3 = $('.top_result h3'),
+            $span = $('.top_result span'),
+            $i = $('.top_result i');
+        var seqChangeFontColor = [
+            {
+                e: $h3,
+                p: {color: '#fff'},
+            }, {
+                e: $span,
+                p: {color: '#fff'},
+                o: {sequenceQueue: false}
+            }, {
+                e: $i,
+                p: {color: '#fff'},
+                o: {sequenceQueue: false}
+            }];
+        $.Velocity.RunSequence(seqChangeColor);
+        $.Velocity.RunSequence(seqChangeFontColor);
     }
 
+
     function pointPostion() {
+        var $width = $('.bottom_result').innerWidth();
+        var $perWidth,
+            $value,
+            $leftValue;
+        if ($sex == 1) {
+            $perWidth = $width / 23;
+            $value = $result - 18;
+        } else if ($sex == 2) {
+            $perWidth = $width / 22;
+            $value = $result - 19;
+        }
+        $leftValue = $perWidth * $value - $caretLeft;
+
+        if ($sex == 1 && $leftValue < 0) {
+            $leftValue = $caretLeft;
+        } else if ($sex == 2 && $leftValue < 0) {
+            $leftValue = $caretLeft;
+        } else if ($leftValue > $width) {
+            $leftValue = $width + $caretLeft;
+        }
+
+        $('.fa-caret-down').show().velocity({left: $leftValue}, {duration: 2600})
 
     }
 });
+
+

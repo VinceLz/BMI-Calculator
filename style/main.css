@@ -12,6 +12,10 @@ body {
     color: #444;
 }
 
+#cnzz_stat_icon_1256445810 {
+    display: none;
+}
+
 /*section of header*/
 
 .header {
@@ -149,6 +153,8 @@ body {
     line-height: 25px;
     padding: 0 25px;
     text-align: center;
+    border-radius: 4px 4px 0px 0px;
+    margin-bottom: 1px
 }
 
 .result_content .top_result h3 {
@@ -176,6 +182,7 @@ body {
     background: url("../imgs/icon/spectrum.png") center bottom no-repeat;
     background-size: 100% 100%;
     position: relative;
+    border-radius:0px 0px 4px 4px;
 }
 
 .result_content .bottom_result i {
@@ -184,6 +191,7 @@ body {
     font-size: 23px;
     top: -32%;
     left: -6.5px;
+    display: none;
 }
 
 /*section of range_info*/
