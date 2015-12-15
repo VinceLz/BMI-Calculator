@@ -1,11 +1,14 @@
 # BMI-Calculator
-用来计算BMI值的Web APP（beta版功能）<br>
-<strong>头部meta部分</strong><br>针对iOS Safari、UC、QQ X5浏览器内核做了相应的Web APP属性设置。<br>
-<strong>脚本部分</strong><br>main.js主要使用jQuery来写，全部手写。<br>
-countUp.js、velocity.js是项目中使用到的两个动画库，前者只负责数字变化的动画效果，<br>后者是功能和性能都十分强大的动画库。<br>
-项目中使用到的所有js库都来自GitHub中的开源项目。<br>
-<strong>icon</strong><br>
-项目中所有的icon均由是字符格式，使用开源字符库<a href='https://github.com/FortAwesome/Font-Awesome/'>Font-Awesome</a> <br>
-<strong>感想</strong><br>
-对UI/UX的完美把握是靠不断地学习修炼来的，完美的产品是靠每一个高要求的细小部分组成的，完成这个页面时间跨度接近一周。项目进行中面对未知的知识，全部解决掉，以上几乎所有的库都是在完成项目的过程中学习的。这样夸自己主要是为了有人能理解自己。<br>
-先睡觉了，有空再写
+###用来计算BMI值的Web APP(beta版功能)  
+**头部meta部分**  
+  针对iOS Safari、QQ X5浏览器内核、UC做了相应的Web App属性优化  
+**脚本部分**  
+  main.js主要用jQuery库编写    
+  countUp.js、velocity.js是项目中使用到的两个动画库，前者只负责数字变化的动画效果，后者是功能和性能都十分强大的动画库，在GitHub上有5000+的stars   
+项目中使用到的所有js库均来自GitHub中的开源项目  
+**图标**  
+  项目中所有的icon均由是字符格式，使用开源字符库[Font-Awesome](https://github.com/FortAwesome/Font-Awesome/)  
+**感想**  
+  对UI/UX的理解是靠不断地学习和思考来提高，高质量的产品是靠每一个高要求的细节组成的，完成这个页面时间跨度接近一周。项目进行中面对未知的知识，全部都能解决掉，没有任何妥协，除了jQuery几乎所有的库都是在完成项目的过程中学习使用的  
+  为了解决动画性能和兼容性问题，一共学习过4个Web前端方向最流行的动画库  
+  快速的学习能力是软件工程师要具备的基本素质，这次项目让我在这方面有了很好的锻炼
