@@ -2,8 +2,6 @@
  * Created by Lewis on 15/12/6.
  */
 
-
-
 $(document).ready(function () {
     var $menu = $('.menu'),
         $headList = $('.header .header_content'),
@@ -491,5 +489,3 @@ $(document).ready(function () {
 
     }
 });
-
-
