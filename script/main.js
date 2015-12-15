@@ -30,7 +30,6 @@ $(document).ready(function () {
         if ($iconMenu.hasClass('fa fa-bars') && timer) {
             timer = false;
             $iconMenu.removeClass().addClass('fa fa-times');
-            $('.buddy').css('z-index', '-2');
             $headList.velocity({
                 translateY: $heightVal
             });
@@ -51,7 +50,6 @@ $(document).ready(function () {
                 translateY: 0
             }, {
                 complete: function () {
-                    $('.buddy').css('z-index', '0');
                     timer = true;
                 }
             })
