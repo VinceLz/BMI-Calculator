@@ -34,7 +34,7 @@ $(document).ready(function () {
                 translateY: $heightVal
             });
             $('.buddy').velocity({
-                translateY: 15
+                translateY: 10
             }, {
                 complete: function () {
                     timer = true;
