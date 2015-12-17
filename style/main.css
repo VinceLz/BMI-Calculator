@@ -184,7 +184,7 @@ body {
     background: url("../imgs/icon/spectrum.png") center bottom no-repeat;
     background-size: 100% 100%;
     position: relative;
-    border-radius:0px 0px 4px 4px;
+    border-radius: 0px 0px 4px 4px;
 }
 
 .result_content .bottom_result i {
@@ -276,4 +276,162 @@ body {
 
 .margin_left_20px {
     margin-left: 20px;
+}
+
+/*overlay*/
+
+.overlay_region .login_region, .overlay_region .signup_region {
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: #F6F6F6;
+}
+
+.overlay_region #login_form {
+    width: 100%;
+}
+
+.overlay_region .login_region {
+    display: none;
+}
+
+.overlay_region .signup_region {
+    /*display: none;*/
+}
+
+.overlay_region .fa-times {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    margin-top: 30px;
+    font-size: 26px;
+    vertical-align: bottom;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+
+.overlay_region .login_container,
+.overlay_region .signup_container {
+    width: 90%;
+    padding: 0 5%;
+    margin: -161px auto 0;
+    position: absolute;
+    top: 50%;
+}
+
+.overlay_region .login_container h2,
+.overlay_region .signup_container h2 {
+    font-size: 32px;
+    font-weight: 200;
+    margin-bottom: 45px;
+    height: 38px;
+    line-height: 38px;
+}
+
+.overlay_region .login_text_input,
+.overlay_region .login_password_input,
+.overlay_region .signup_text_input,
+.overlay_region .signup_password_input {
+    display: block;
+    border-radius: 2px;
+    border: 2px solid #ccc;
+    outline: none;
+    height: 40px;
+    background-color: #FFFFFF;
+    color: #3A3D40;
+    width: 100%;
+    padding-left: 16px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.overlay_region .login_text_input,
+.overlay_region .signup_text_input {
+    margin-bottom: 16px;
+}
+
+.overlay_region .login_container .quick-switch,
+.overlay_region .signup_container .quick-switch {
+    display: block;
+    margin: 10px 0 10px 0;
+    text-align: left;
+    color: #588FE7;
+}
+
+.overlay_region .login_container .remember_me_label {
+    line-height: 44px;
+    float: left;
+    margin: 10px 0;
+}
+
+.overlay_region .login_container .remember_me_label input[type="checkbox"] {
+    position: absolute;
+    z-index: -1;
+    outline: none;
+    opacity: 0;
+}
+
+.overlay_region .login_container .rest_password {
+    line-height: 44px;
+    float: right;
+    margin: 10px 0;
+}
+
+.overlay_region .login_container .checkbox-container {
+
+}
+
+.overlay_region .login_container .remember-me-form-control {
+    vertical-align: top;
+}
+
+.overlay_region .login_container .remember-me-form-control i {
+    display: inline-block;
+    border: 1px solid #2990EA;
+    background: #2990EA;
+    width: 18px;
+    height: 18px;
+    color: white;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 3px;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+.overlay_region .login_container .rest_password a {
+    text-decoration: none;
+    color: #588FE7;
+}
+
+.overlay_region .login_region .submit-button {
+    clear: both;
+}
+
+.overlay_region .login_region .submit-button button,
+.overlay_region .signup_container .submit-button button {
+    height: 43px;
+    color: white;
+    font-size: 15px;
+    border: 0;
+    padding-left: 35px;
+    padding-right: 35px;
+    text-align: center;
+    border-radius: 50px;
+    background: #2990EA;
+    box-sizing: content-box;
+}
+
+.overlay_region .signup_container .submit-button button {
+    margin-top: 20px;
+}
+
+@media screen and (max-height:550px) {
+    .overlay_region .login_container,
+    .overlay_region .signup_container {
+        top: 255px;
+        height: auto;
+    }
 }
