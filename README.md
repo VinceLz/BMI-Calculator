@@ -1,5 +1,6 @@
 # BMI-Calculator
 ###用来计算BMI值的Web APP(beta版功能)  
+  *服务器访问地址：http://www.suclub.cn/bmi*  
 **头部meta部分**  
   针对iOS Safari、QQ X5浏览器内核、UC做了相应的Web App属性优化  
 **脚本部分**  
