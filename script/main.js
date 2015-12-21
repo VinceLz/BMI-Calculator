@@ -23,8 +23,6 @@ $(document).ready(function () {
         $cross = $('.overlay_region .fa-times'),
         $loginSwitch = $('.overlay_region .login_region .quick-switch'),
         $signupSwitch = $('.overlay_region .signup_region .quick-switch'),
-        $remLabel = $('.overlay_region .remember_me_label'),
-        $remStyle = $('.overlay_region .login_container .remember-me-form-control i'),
         $sex = sexInfo(),
         timer = true,
         state = true,
@@ -64,6 +62,10 @@ $(document).ready(function () {
         }];
         $.Velocity.RunSequence(seqMove);
         $cross.css('display', 'none');
+        var $inputList = $('.overlay_region input:not(:checkbox)');
+        $inputList.removeClass('error_highlight');
+        $('#signup-error-info').html('');
+        $('#login-error-info').html('');
     });
 
     $loginSwitch.click(function () {
@@ -91,7 +93,6 @@ $(document).ready(function () {
     /*
      表单验证
      */
-    //changInputStyle();
 
     $("#login_form").validate({
         debug: true,
@@ -131,10 +132,12 @@ $(document).ready(function () {
         focusInvalid: false,
         rules: {
             account: {
-                required: true
+                required: true,
+                minlength: 3
             },
             password: {
-                required: true
+                required: true,
+                maxlength: 16
             }
         }, groups: {
             accandpass: "account password"
@@ -158,23 +161,6 @@ $(document).ready(function () {
             error.appendTo("#signup-error-info");
         }
     });
-
-    //function changInputStyle() {
-    //    var $inputList = $('.overlay_region input:not(:checkbox)');
-    //    if (!$inputList.hasClass('error_highlight')) {
-    //        $inputList
-    //            .mouseover(function () {
-    //                $(this).css('border-color', '#91CCFF')
-    //            })
-    //            .mouseout(function () {
-    //            $(this).css('border-color', '#ccc');
-    //            $(this).focus(function () {
-    //                $(this).css('border-color', '#91CCFF')
-    //            })
-    //        })
-    //    }
-    //
-    //}
 
     /*
      菜单栏下拉
@@ -640,5 +626,4 @@ $(document).ready(function () {
         $('.fa-caret-down').show().velocity({left: $leftValue}, {duration: 2600})
 
     }
-})
-;
+});
