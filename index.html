@@ -28,6 +28,8 @@
     <script src="script/velocity.ui.min.js"></script>
     <script src="script/main.js"></script>
     <script src="script/countUp.min.js"></script>
+    <script src="script/jquery.validate.min.js"></script>
+    <!--<script src="script/messages_zh.js"></script>-->
     <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1256445810'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256445810' type='text/javascript'%3E%3C/script%3E"));</script>
 </head>
@@ -38,14 +40,14 @@
         <div class="login_container">
             <h2>Log in</h2>
             <form action="#" id="login_form" method="post">
-                <input type="text" class="login_text_input" placeholder="Account">
-                <input type="password" class="login_password_input" placeholder="Password">
+                <input type="text" class="login_text_input" placeholder="Account" name="account">
+                <input type="password" class="login_password_input" placeholder="Password" name="password">
+                <span id="login-error-info"></span>
                 <span class="quick-switch">Don't have an account? Click here to sign up.</span>
-                <label class="remember_me_label">
-                    <span class="checkbox-container"></span>
-                    <input type="checkbox" checked="checked">
+                <label class="remember_me_label" for="check-box">
+                    <input type="checkbox" checked="checked" id="check-box">
                     <span class="remember-me-form-control">
-                        <i class="fa fa-check"></i>
+                        <i class="fa fa-check check-active"></i>
                     </span>
                     Remember me
                 </label>
@@ -53,7 +55,7 @@
                     <a href="#">Rest Password</a>
                 </div>
                 <p class="submit-button">
-                    <button type="submit" class="login-btn submit-btn" value="Log In">Log In</button>
+                    <button type="submit" class="login-btn submit-btn submit" value="Log In">Log In</button>
                 </p>
             </form>
         </div>
@@ -63,8 +65,9 @@
         <div class="signup_container">
             <h2>Sign up</h2>
             <form action="#" id="signup_form" method="post">
-                <input type="text" class="signup_text_input" placeholder="New Name">
-                <input type="password" class="signup_password_input" placeholder="Password">
+                <input type="text" class="signup_text_input" placeholder="New Name" name="account">
+                <input type="password" class="signup_password_input" placeholder="Password" name="password">
+                <span id="signup-error-info"></span>
                 <span class="quick-switch">Already have an account? Click here to log in.</span>
                 <p class="submit-button">
                     <button type="submit" class="signup-btn submit-btn" value="Sign Up Free">Sign Up</button>
@@ -76,9 +79,7 @@
 <div class="header">
     <div class="title">
         <div class="header_banner">
-            <a href="http://www.suclub.cn" target="_blank">
-                <h1 class="suc_logo fl"></h1>
-            </a>
+            <h1 class="suc_logo fl">LogIn</h1>
         </div>
         <a href="#" class="menu">
             <i class="fa fa-bars"></i>
@@ -86,7 +87,7 @@
     </div>
     <nav class="header_content">
         <a href="#">About</a>
-        <a href="#">FAQ</a>
+        <a href="#">FQA</a>
     </nav>
 </div>
 <div class="buddy">
@@ -167,7 +168,6 @@
             <a class="margin_left_20px " href="http://m.weibo.cn/u/2702499024" target="_blank">
                 <i class="fa fa-weibo"></i>
             </a>
-
         </div>
     </div>
 </div>

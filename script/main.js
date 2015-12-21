@@ -17,15 +17,169 @@ $(document).ready(function () {
         $heightVal = $headList.height(),
         $resultBackground = $('.result_content .top_result'),
         $caretLeft = parseInt($('.fa-caret-down').css('left')),
+        $loginLink = $('.header .header_banner h1'),
+        $loginReg = $('.overlay_region .login_region'),
+        $signupReg = $('.overlay_region .signup_region'),
+        $cross = $('.overlay_region .fa-times'),
+        $loginSwitch = $('.overlay_region .login_region .quick-switch'),
+        $signupSwitch = $('.overlay_region .signup_region .quick-switch'),
+        $remLabel = $('.overlay_region .remember_me_label'),
+        $remStyle = $('.overlay_region .login_container .remember-me-form-control i'),
         $sex = sexInfo(),
         timer = true,
         state = true,
         $result;
 
+    /*
+     登陆注册
+     */
+
+    $loginLink.click(function () {
+        var seqMove = [{
+            e: $loginReg,
+            p: 'transition.expandIn',
+        }, {
+            e: $cross,
+            p: 'transition.expandIn',
+        }, {
+            e: $cross,
+            p: 'callout.swing',
+            o: {sequenceQueue: false}
+        }];
+        $.Velocity.RunSequence(seqMove);
+        $('.header').css('display', 'none');
+        $('.buddy').css('display', 'none');
+    });
+
+    $cross.click(function () {
+        $('.header').css('display', 'block');
+        $('.buddy').css('display', 'block');
+        var seqMove = [{
+            e: $loginReg,
+            p: 'fadeOut'
+        }, {
+            e: $signupReg,
+            p: 'fadeOut',
+            o: {sequenceQueue: false}
+        }];
+        $.Velocity.RunSequence(seqMove);
+        $cross.css('display', 'none');
+    });
+
+    $loginSwitch.click(function () {
+        var seqMove = [{
+            e: $loginReg,
+            p: 'fadeOut'
+        }, {
+            e: $signupReg,
+            p: 'fadeIn'
+        }];
+        $.Velocity.RunSequence(seqMove);
+    });
+
+    $signupSwitch.click(function () {
+        var seqMove = [{
+            e: $signupReg,
+            p: 'fadeOut'
+        }, {
+            e: $loginReg,
+            p: 'fadeIn'
+        }];
+        $.Velocity.RunSequence(seqMove);
+    });
+
+    /*
+     表单验证
+     */
+    //changInputStyle();
+
+    $("#login_form").validate({
+        debug: true,
+        focusInvalid: false,
+        rules: {
+            account: {
+                required: true
+            },
+            password: {
+                required: true
+            }
+        }, groups: {
+            accandpass: "account password"
+        },
+        messages: {
+            account: {
+                required: 'Wrong username or password.'
+            },
+            password: {
+                required: 'Wrong username or password.'
+            }
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('error_highlight');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('error_highlight');
+        },
+        errorContainer: '#login-error-info',
+        errorPlacement: function (error, element) {
+            error.appendTo("#login-error-info");
+        }
+    });
+
+    $("#signup_form").validate({
+        debug: true,
+        focusInvalid: false,
+        rules: {
+            account: {
+                required: true
+            },
+            password: {
+                required: true
+            }
+        }, groups: {
+            accandpass: "account password"
+        },
+        messages: {
+            account: {
+                required: 'Please provide a username.'
+            },
+            password: {
+                required: 'Please provide a password.'
+            }
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('error_highlight');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('error_highlight');
+        },
+        errorContainer: '#signup-error-info',
+        errorPlacement: function (error, element) {
+            error.appendTo("#signup-error-info");
+        }
+    });
+
+    //function changInputStyle() {
+    //    var $inputList = $('.overlay_region input:not(:checkbox)');
+    //    if (!$inputList.hasClass('error_highlight')) {
+    //        $inputList
+    //            .mouseover(function () {
+    //                $(this).css('border-color', '#91CCFF')
+    //            })
+    //            .mouseout(function () {
+    //            $(this).css('border-color', '#ccc');
+    //            $(this).focus(function () {
+    //                $(this).css('border-color', '#91CCFF')
+    //            })
+    //        })
+    //    }
+    //
+    //}
 
     /*
      菜单栏下拉
      */
+
     $menu.click(function () {
         if ($iconMenu.hasClass('fa fa-bars') && timer) {
             timer = false;
@@ -486,4 +640,5 @@ $(document).ready(function () {
         $('.fa-caret-down').show().velocity({left: $leftValue}, {duration: 2600})
 
     }
-});
+})
+;

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style/font-awesome.min.css">
+    <script src="script/jquery-2.1.4.min.js"></script>
+    <script src="script/jquery.validate.min.js"></script>
+    <script src="script/messages_zh.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<form action="" id="form_box">
+    <input type="text" name="name" required aria-required="true">
+    <input type="password" name="password" maxlength="16" required>
+    <input class="submit" type="submit" value="Submit">
+</form>
+<script>
+    $(document).ready(function () {
+        $('#form_box').validate()
+    })
+</script>
+</body>
+</html>

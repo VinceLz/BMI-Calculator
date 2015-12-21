@@ -36,21 +36,22 @@ body {
 
 .header_banner h1 {
     display: inline-block;
-    width: 80px;
+    color: #8E9396;
+    font-size: 16px;
+    font-weight: normal;
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: url("../imgs/icon/suc.png") right center no-repeat;
-    background-size: contain;
-    position: relative;
+    position: absolute;
     left: 5%;
+    cursor: pointer;
 }
 
 .header .menu {
     position: absolute;
     top: 21px;
     right: 5%;
-    color: #36464F;
+    color: #8E9396;
     cursor: pointer;
 }
 
@@ -298,7 +299,7 @@ body {
 }
 
 .overlay_region .signup_region {
-    /*display: none;*/
+    display: none;
 }
 
 .overlay_region .fa-times {
@@ -310,6 +311,8 @@ body {
     vertical-align: bottom;
     border: 1px solid #ccc;
     border-radius: 50%;
+    display: none;
+    cursor: pointer;
 }
 
 .overlay_region .login_container,
@@ -347,9 +350,35 @@ body {
     box-sizing: border-box;
 }
 
+.overlay_region .login_text_input:hover,
+.overlay_region .login_password_input:hover,
+.overlay_region .signup_text_input:hover,
+.overlay_region .signup_password_input:hover,
+.overlay_region .login_text_input:focus,
+.overlay_region .login_password_input:focus,
+.overlay_region .signup_text_input:focus,
+.overlay_region .signup_password_input:focus {
+    border-color: #91CCFF;
+}
+
+.overlay_region .error_highlight,
+.overlay_region .error_highlight:hover,
+.overlay_region .error_highlight:focus {
+    border-color: #EEB9B8;
+}
+
 .overlay_region .login_text_input,
 .overlay_region .signup_text_input {
     margin-bottom: 16px;
+}
+
+.login_container #login-error-info,
+.signup_region #signup-error-info{
+    float: left;
+    margin: 10px 0 10.5px;
+    color: #AC3737;
+    text-align: left;
+    display: none;
 }
 
 .overlay_region .login_container .quick-switch,
@@ -358,19 +387,18 @@ body {
     margin: 10px 0 10px 0;
     text-align: left;
     color: #588FE7;
+    cursor: pointer;
+    clear: both;
 }
 
 .overlay_region .login_container .remember_me_label {
     line-height: 44px;
     float: left;
     margin: 10px 0;
-}
-
-.overlay_region .login_container .remember_me_label input[type="checkbox"] {
-    position: absolute;
-    z-index: -1;
-    outline: none;
-    opacity: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .overlay_region .login_container .rest_password {
@@ -379,21 +407,31 @@ body {
     margin: 10px 0;
 }
 
-.overlay_region .login_container .checkbox-container {
-
+#check-box {
+    display: none;
 }
 
-.overlay_region .login_container .remember-me-form-control {
-    vertical-align: top;
-}
-
-.overlay_region .login_container .remember-me-form-control i {
+#check-box:checked + span {
     display: inline-block;
     border: 1px solid #2990EA;
     background: #2990EA;
     width: 18px;
     height: 18px;
     color: white;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 3px;
+    margin-right: 20px;
+    box-sizing: border-box;
+}
+
+#check-box + span {
+    display: inline-block;
+    border: 1px solid #ccc;
+    background: #F6F6F6;
+    width: 18px;
+    height: 18px;
+    color: #F6F6F6;
     font-size: 12px;
     line-height: 18px;
     border-radius: 3px;
@@ -428,7 +466,7 @@ body {
     margin-top: 20px;
 }
 
-@media screen and (max-height:550px) {
+@media screen and (max-height: 550px) {
     .overlay_region .login_container,
     .overlay_region .signup_container {
         top: 255px;
