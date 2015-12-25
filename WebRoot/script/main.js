@@ -124,11 +124,33 @@ $(document).ready(function () {
         errorContainer: '#login-error-info',
         errorPlacement: function (error, element) {
             error.appendTo("#login-error-info");
+        },
+        submitHandler: function () {
+            var lusername = $("#login_username").val();
+            var lpassword = $("#login_password").val();
+            var cook = $("#check-box").is(':checked');
+
+            $.ajax({
+                url: "/BMI-Calculator/UserServlet",
+                data: {method: "ajaxlogin", lusername: lusername, lpassword: lpassword, remember: cook},
+                type: "POST",
+                dataType: "json",
+                async: false,
+                cache: false,
+                success: function (result) {
+                    if (result) {
+                        //需要跳转到主页 待定1！
+                        alert("登陆成功");
+                    } else {
+                        alert("登陆失败,请检查您的账号/密码。欢迎注册");
+                    }
+                }
+            });
         }
     });
 
     $("#signup_form").validate({
-        debug: true,
+        //debug: true,
         focusInvalid: false,
         rules: {
             account: {
@@ -159,6 +181,26 @@ $(document).ready(function () {
         errorContainer: '#signup-error-info',
         errorPlacement: function (error, element) {
             error.appendTo("#signup-error-info");
+        },
+        submitHandler: function () {
+            var username = $("#accout").val();
+            var password = $("#password").val();
+
+            $.ajax({
+                url: "/BMI-Calculator/UserServlet",
+                data: {method: "ajaxRegist", username: username, password: password},
+                type: "POST",
+                dataType: "json",
+                async: false,
+                cache: false,
+                success: function (result) {
+                    if (result) {
+                        alert("注册成功");
+                    } else {
+                        alert("注册失败");
+                    }
+                }
+            });
         }
     });
 
