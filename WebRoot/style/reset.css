@@ -15,7 +15,7 @@ button, input.ie6 { overflow: visible; padding: .1em .25em; cursor: pointer; }
 input[type="button"], input[type="submit"], input[type="reset"] { overflow: visible; padding: .1em .25em; cursor: pointer; }
 input[type="text"], select, textarea { background-color: #FFFFFF; }
 select { border: 1px inset; }
-textarea { overflow: auto; vertical-align: text-bottom; *vertical-align: auto; border: 1px solid; resize: vertical; }
+textarea { overflow: auto; vertical-align: text-bottom; border: 1px solid; resize: vertical; }
 table { border-spacing: 0; }
 td, th, caption { padding: 0; }
 .fl { float: left; }
