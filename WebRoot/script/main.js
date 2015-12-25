@@ -95,7 +95,6 @@ $(document).ready(function () {
      */
 
     $("#login_form").validate({
-        debug: true,
         focusInvalid: false,
         rules: {
             account: {
@@ -150,7 +149,6 @@ $(document).ready(function () {
     });
 
     $("#signup_form").validate({
-        //debug: true,
         focusInvalid: false,
         rules: {
             account: {
