@@ -38,71 +38,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--<script src="script/messages_zh.js"></script>-->
     <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1256445810'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1256445810' type='text/javascript'%3E%3C/script%3E"));</script>
-	<script>
-		$(function(){
-		
-			$("#regist").click(function(){
-				
-				var username=$("#accout").val();
-				var password=$("#password").val();
-				
-		$.ajax({
-		url:"/BMI-Calculator/UserServlet",
-		data:{method:"ajaxRegist",username:username,password:password},
-		type:"POST",
-		dataType:"json",
-		async:false,
-		cache:false,
-		success:function(result){
-			if(result){
-					alert("注册成功");
-			}else{
-			alert("注册失败");
-			}
-				
-		}
-	});
-			
-			});
-		//登陆
-		$("#login").click(function(){
-				
-				var lusername=$("#login_username").val();
-				var lpassword=$("#login_password").val();
-				var cook=$("#check-box").is(':checked');
-				
-			$.ajax({
-			url:"/BMI-Calculator/UserServlet",
-		data:{method:"ajaxlogin",lusername:lusername,lpassword:lpassword,remember:cook},
-		type:"POST",
-		dataType:"json",
-		async:false,
-		cache:false,
-		success:function(result){
-		if(result){
-			//需要跳转到主页 待定1！
-					alert("登陆成功");
-			}else{
-			alert("登陆失败,请检查您的账号/密码。欢迎注册");
-			}
-				
-			
-				
-		}
-			
-			
-			
-			
-			});
-		
-		});	
-		
-		
-		
-		});
-	
-	
-	</script>
+	<%--<script>--%>
+		<%--$(function(){--%>
+
+			<%--$("#regist").click(function(){--%>
+
+				<%--var username=$("#accout").val();--%>
+				<%--var password=$("#password").val();--%>
+
+		<%--$.ajax({--%>
+		<%--url:"/BMI-Calculator/UserServlet",--%>
+		<%--data:{method:"ajaxRegist",username:username,password:password},--%>
+		<%--type:"POST",--%>
+		<%--dataType:"json",--%>
+		<%--async:false,--%>
+		<%--cache:false,--%>
+		<%--success:function(result){--%>
+			<%--if(result){--%>
+					<%--alert("注册成功");--%>
+			<%--}else{--%>
+			<%--alert("注册失败");--%>
+			<%--}--%>
+        <%--}--%>
+	<%--});--%>
+			<%--});--%>
+		<%--//登陆--%>
+		<%--$("#login").click(function(){--%>
+
+				<%--var lusername=$("#login_username").val();--%>
+				<%--var lpassword=$("#login_password").val();--%>
+				<%--var cook=$("#check-box").is(':checked');--%>
+
+			<%--$.ajax({--%>
+			<%--url:"/BMI-Calculator/UserServlet",--%>
+		<%--data:{method:"ajaxlogin",lusername:lusername,lpassword:lpassword,remember:cook},--%>
+		<%--type:"POST",--%>
+		<%--dataType:"json",--%>
+		<%--async:false,--%>
+		<%--cache:false,--%>
+		<%--success:function(result){--%>
+		<%--if(result){--%>
+			<%--//需要跳转到主页 待定1！--%>
+					<%--alert("登陆成功");--%>
+			<%--}else{--%>
+			<%--alert("登陆失败,请检查您的账号/密码。欢迎注册");--%>
+			<%--}--%>
+		<%--}--%>
+			<%--});--%>
+		<%--});--%>
+		<%--});--%>
+	<%--</script>--%>
 
 </head>
 <body>
@@ -157,7 +142,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <h2>Sign up</h2>
             <form action="#" id="signup_form" method="post">
                 <input type="text" class="signup_text_input"  id="accout" placeholder="New Name" name="account">
-               
                 <input type="password" class="signup_password_input" placeholder="Password" id="password" name="password">
                 <span id="signup-error-info"></span>
                 <span class="quick-switch">Already have an account? Click here to log in.</span>
@@ -187,7 +171,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul class="info_content">
             <li class="age_info">
                 <h3>年龄</h3>
-                <input type="number" name="age" step='1' min="1" max="100">
+                <input type="number" name="age" step='1' min="1" max="100" >
             <span>
                 <i class="fa fa-female"></i>
                 <i class="line">|</i>
@@ -196,12 +180,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </li>
             <li class="height_info">
                 <h3>身高</h3>
-                <input type="number" name="height" min="1" max="250">
+                <input type="number" name="height" min="1" max="250" >
                 <span>CM</span>
             </li>
             <li class="weight_info">
                 <h3>体重</h3>
-                <input type="number" name="weight" min="1" max="200">
+                <input type="number" name="weight" min="1" max="200" >
                 <span>KG</span>
             </li>
         </ul>
